@@ -1,10 +1,10 @@
 module.exports = {
-  pug: {
+  ejs: {
     path: {
-      watch: './src/**/*.pug',
+      watch: './src/**/*.ejs',
       exec: [
-        './src/**/*.pug',
-        '!./src/views/variables/**/*'
+        './src/**/*.ejs',
+        '!./src/variables/**/*'
       ]
     }
   }

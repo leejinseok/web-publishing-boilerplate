@@ -1,7 +1,6 @@
 const gulp = require('gulp');
 const webserver = require('gulp-webserver');
 const ejs = require('gulp-ejs');
-const pug = require('gulp-pug');
 const htmlprettify = require('gulp-html-prettify');
 const config = require('./config');
 
@@ -13,20 +12,20 @@ gulp.task('webserver', function(){
   }));
 });
 
-gulp.task('pug', () => {
-  gulp.src(config.pug.path.exec)
-  .pipe(pug({}, {}, { ext: '.html' }))
+gulp.task('ejs', () => {
+  gulp.src(config.ejs.path.exec)
+  .pipe(ejs({}, {}, { ext: '.html' }))
   .on('error', swallowError)
   .pipe(htmlprettify({indent_char: ' ', indent_size: 2}))
   .pipe(gulp.dest("./dist"));
 });
 
 
-gulp.task('default', ['webserver', 'pug'], () => {
-  gulp.watch(config.pug.path.watch, ['pug']);
+gulp.task('default', ['webserver', 'ejs'], () => {
+  gulp.watch(config.ejs.path.watch, ['ejs']);
 });
 
-gulp.task('build', ['pug']);
+gulp.task('build', ['ejs']);
 
 /**
 * swallowError - 에러 핸들링 (https://stackoverflow.com/questions/23971388/prevent-errors-from-breaking-crashing-gulp-watch)
