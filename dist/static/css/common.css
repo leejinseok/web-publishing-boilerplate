@@ -1,8 +1,49 @@
+html, body {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+/*
+========================
+Global
+========================
+*/
 .center {
   margin-left: auto;
   margin-right: auto;
 }
 
+.notosans {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
 .text-center {
   text-align: center;
+}
+
+.fw-bold {
+  font-weight: bold;
+}
+
+.fw-normal {
+  font-weight: normal;
+}
+
+.fw-thin {
+  font-weight: 300;
+}
+
+/*
+========================
+Transition
+========================
+*/
+.showSmoothUp {
+  transform: translateY(120px);
+  opacity: 0;
+  transition: all .9s;
+}
+
+.showSmoothUp.active {
+  transform: translate(0);
+  opacity: 1;
 }
