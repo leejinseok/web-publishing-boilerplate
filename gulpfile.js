@@ -4,14 +4,6 @@ const ejs = require('gulp-ejs');
 const htmlprettify = require('gulp-html-prettify');
 const config = require('./config');
 
-gulp.task('webserver', function(){
-  gulp.src('./dist')
-  .pipe(webserver({
-    open: true,
-    port: 9001
-  }));
-});
-
 gulp.task('ejs', () => {
   gulp.src(config.ejs.path.exec)
   .pipe(ejs({}, {}, { ext: '.html' }))
@@ -21,7 +13,7 @@ gulp.task('ejs', () => {
 });
 
 
-gulp.task('default', ['webserver', 'ejs'], () => {
+gulp.task('default', ['ejs'], () => {
   gulp.watch(config.ejs.path.watch, ['ejs']);
 });
 
