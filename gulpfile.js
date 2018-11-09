@@ -1,17 +1,18 @@
 const gulp = require('gulp');
-const webserver = require('gulp-webserver');
 const ejs = require('gulp-ejs');
 const htmlprettify = require('gulp-html-prettify');
-const config = require('./config');
+const removeFiles = require('gulp-remove-files');
+const config = require('./gulp.config');
 
 gulp.task('ejs', () => {
   gulp.src(config.ejs.path.exec)
-  .pipe(ejs({}, {}, { ext: '.html' }))
-  .on('error', swallowError)
-  .pipe(htmlprettify({indent_char: ' ', indent_size: 2}))
-  .pipe(gulp.dest("./dist"));
+    .pipe(ejs({}, {}, { ext: '.html' })).on('error', swallowError)
+    .pipe(htmlprettify({indent_char: ' ', indent_size: 2})).on('error', swallowError)
+    .pipe(gulp.dest("./dist")).on('error', swallowError)
+    
+  gulp.src('./dist/**/*.ejs')
+    .pipe(removeFiles())
 });
-
 
 gulp.task('default', ['ejs'], () => {
   gulp.watch(config.ejs.path.watch, ['ejs']);
@@ -25,5 +26,5 @@ gulp.task('build', ['ejs']);
 * @param  {obejct} error
 */
 function swallowError (error) {
-  console.log(error.toString());
+  console.log(error);
 }
