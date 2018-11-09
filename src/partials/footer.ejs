@@ -1,5 +1,16 @@
-<footer class="full-width">
-  푸터
-</footer>
+    <footer class="full-width">
+      푸터
+    </footer>
+  </div>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.0/underscore-min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="./static/js/app.js?v=<%= version %>"></script>
+  <% for (i = 0; i < js.length; i++) { %>
+    <script src="<%= js[i] %>?v=<%= version %>"></script>
+  <% } %>
 </body>
 </html>

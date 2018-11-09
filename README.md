@@ -2,4 +2,4 @@
 - gulp
 - ejs
 - express
-- angular
+- vue
