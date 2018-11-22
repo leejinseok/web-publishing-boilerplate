@@ -1,5 +1,16 @@
 Vue.config.devtools = true;
 
+var mixin = {
+  data: {
+    menuModal: false,
+  },
+  methods: {
+  },
+  created: function () {
+    console.log('mixin hook called')
+  }
+}
+
 /**
  * 쿠키 셋
  * @param {string} cname
